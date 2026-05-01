@@ -65,7 +65,7 @@ P1        0     0     1
 P2        0     0    -3
 P3        1     0     0
 
-Arête améliorante : P2 -> C3 avec coût marginal -3
+Arête améliorante testée : P2 -> C3 avec coût marginal -3
 
 Cycle trouvé :
 + P2 -> C3
@@ -89,7 +89,7 @@ P2 -> C3 devient 15
 P3 -> C3 devient 5
 P3 -> C2 devient 20
 P2 -> C2 devient 0
-Arête(s) supprimée(s) :
+Arête supprimée de la base :
 P2 -> C2
 
 ------------------------------------------------------------
@@ -106,7 +106,7 @@ P3        0    20     5   | 25
 -------------------------------------------
 Cmd     35    20    20
 Coût actuel = 435
-Arêtes de base = [(1, 1), (2, 1), (2, 3), (3, 2), (3, 3)]
+Arêtes de base = [(1, 1), (2, 1), (3, 2), (3, 3), (2, 3)]
 Test acyclique BFS : aucun cycle détecté.
 Test connexité BFS : graphe connexe.
 Potentiels fournisseurs u = [0, 1, 3]
@@ -128,7 +128,7 @@ P1        0     3     4
 P2        0     3     0
 P3       -2     0     0
 
-Arête améliorante : P3 -> C1 avec coût marginal -2
+Arête améliorante testée : P3 -> C1 avec coût marginal -2
 
 Cycle trouvé :
 + P3 -> C1
@@ -152,7 +152,7 @@ P3 -> C1 devient 5
 P2 -> C1 devient 5
 P2 -> C3 devient 20
 P3 -> C3 devient 0
-Arête(s) supprimée(s) :
+Arête supprimée de la base :
 P3 -> C3
 
 ------------------------------------------------------------
@@ -169,7 +169,7 @@ P3        5    20     0   | 25
 -------------------------------------------
 Cmd     35    20    20
 Coût actuel = 425
-Arêtes de base = [(1, 1), (2, 1), (2, 3), (3, 1), (3, 2)]
+Arêtes de base = [(1, 1), (2, 1), (3, 2), (2, 3), (3, 1)]
 Test acyclique BFS : aucun cycle détecté.
 Test connexité BFS : graphe connexe.
 Potentiels fournisseurs u = [0, 1, 1]

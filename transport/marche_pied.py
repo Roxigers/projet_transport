@@ -1,6 +1,7 @@
 from transport.io_affichage import afficher_transport, afficher_matrice
 from transport.initiales import cout_total
 from transport.graphe import (
+    base_initiale,
     rendre_non_degenere,
     test_acyclique_bfs,
     test_connexe_bfs,
@@ -10,7 +11,7 @@ from transport.potentiels import (
     calcul_potentiels,
     calcul_couts_potentiels,
     calcul_couts_marginaux,
-    trouver_arete_ameliorante,
+    toutes_aretes_ameliorantes,
 )
 
 
@@ -52,7 +53,47 @@ def afficher_cycle(cycle):
     return signes
 
 
-def maximiser_sur_cycle(transport, cycle):
+def obtenir_cases_moins(cycle):
+    cases_moins = []
+
+    for k, (i, j) in enumerate(cycle):
+        if k % 2 == 1:
+            cases_moins.append((i, j))
+
+    return cases_moins
+
+
+def calcul_theta(transport, cycle):
+    cases_moins = obtenir_cases_moins(cycle)
+
+    if not cases_moins:
+        return None
+
+    return min(transport[i][j] for i, j in cases_moins)
+
+
+def choisir_arete_sortante(transport, cycle, base):
+    cases_moins = obtenir_cases_moins(cycle)
+    theta = calcul_theta(transport, cycle)
+
+    candidates = []
+
+    for i, j in cases_moins:
+        if transport[i][j] == theta and (i, j) in base:
+            candidates.append((i, j))
+
+    if not candidates:
+        return None
+
+    # En cas d'égalité, on choisit une arête de base à quantité nulle si possible.
+    for i, j in candidates:
+        if transport[i][j] == 0:
+            return (i, j)
+
+    return candidates[0]
+
+
+def maximiser_sur_cycle(transport, cycle, base, arete_entrante):
     signes = []
 
     for k, (i, j) in enumerate(cycle):
@@ -60,7 +101,6 @@ def maximiser_sur_cycle(transport, cycle):
         signes.append((signe, i, j))
 
     cases_moins = [(i, j) for signe, i, j in signes if signe == "-"]
-
     theta = min(transport[i][j] for i, j in cases_moins)
 
     print("\nMaximisation sur le cycle :")
@@ -81,6 +121,8 @@ def maximiser_sur_cycle(transport, cycle):
 
     print("θ =", theta)
 
+    arete_sortante = choisir_arete_sortante(transport, cycle, base)
+
     for signe, i, j in signes:
         if signe == "+":
             transport[i][j] += theta
@@ -92,26 +134,44 @@ def maximiser_sur_cycle(transport, cycle):
     for signe, i, j in signes:
         print(f"P{i + 1} -> C{j + 1} devient {transport[i][j]}")
 
-    aretes_supprimees = []
+    if arete_entrante not in base:
+        base.append(arete_entrante)
 
-    for i, j in cases_moins:
-        if transport[i][j] == 0:
-            aretes_supprimees.append((i, j))
+    if arete_sortante is not None and arete_sortante in base:
+        base.remove(arete_sortante)
 
-    if aretes_supprimees:
-        print("Arête(s) supprimée(s) :")
-        for i, j in aretes_supprimees:
-            print(f"P{i + 1} -> C{j + 1}")
+    if theta == 0:
+        print("\nPivot dégénéré : θ = 0.")
+        print("La proposition ne change pas, mais la base est modifiée.")
+
+    if arete_sortante is not None:
+        i, j = arete_sortante
+        print("Arête supprimée de la base :")
+        print(f"P{i + 1} -> C{j + 1}")
     else:
-        print("Aucune arête supprimée.")
+        print("Aucune arête sortante trouvée.")
 
-    return theta
+    return theta, arete_sortante
+
+
+def nettoyer_base(base):
+    nouvelle_base = []
+
+    for arete in base:
+        if arete not in nouvelle_base:
+            nouvelle_base.append(arete)
+
+    return nouvelle_base
 
 
 def marche_pied_potentiels(n, m, couts, transport, provisions, commandes):
     iteration = 1
+    iteration_max = 500
 
-    while True:
+    base = base_initiale(transport)
+    base = rendre_non_degenere(couts, transport, base)
+
+    while iteration <= iteration_max:
         print("\n" + "-" * 60)
         print(f"ITÉRATION MARCHE-PIED {iteration}")
         print("-" * 60)
@@ -119,14 +179,15 @@ def marche_pied_potentiels(n, m, couts, transport, provisions, commandes):
         afficher_transport(n, m, transport, provisions, commandes)
         print("Coût actuel =", cout_total(couts, transport))
 
-        aretes_base = rendre_non_degenere(couts, transport)
+        base = nettoyer_base(base)
+        base = rendre_non_degenere(couts, transport, base)
 
-        print("Arêtes de base =", [(i + 1, j + 1) for i, j in aretes_base])
+        print("Arêtes de base =", [(i + 1, j + 1) for i, j in base])
 
-        test_acyclique_bfs(n, m, aretes_base)
-        test_connexe_bfs(n, m, aretes_base)
+        test_acyclique_bfs(n, m, base)
+        test_connexe_bfs(n, m, base)
 
-        u, v = calcul_potentiels(couts, aretes_base)
+        u, v = calcul_potentiels(couts, base)
 
         print("Potentiels fournisseurs u =", u)
         print("Potentiels clients v =", v)
@@ -137,32 +198,53 @@ def marche_pied_potentiels(n, m, couts, transport, provisions, commandes):
         marginaux = calcul_couts_marginaux(couts, u, v)
         afficher_matrice(n, m, marginaux, "Table des coûts marginaux")
 
-        arete, valeur = trouver_arete_ameliorante(marginaux, aretes_base)
+        aretes_am = toutes_aretes_ameliorantes(marginaux, base)
 
-        if arete is None:
+        if not aretes_am:
             print("\nAucune arête améliorante : solution optimale trouvée.")
             print("Coût optimal =", cout_total(couts, transport))
             return transport
 
-        i, j = arete
-        print(
-            f"\nArête améliorante : P{i + 1} -> C{j + 1} "
-            f"avec coût marginal {valeur}"
-        )
+        amelioration_faite = False
 
-        cycle = cycle_marche_pied(n, m, aretes_base, arete)
+        for i, j, valeur in aretes_am:
+            arete_entrante = (i, j)
 
-        if cycle is None:
-            print("Erreur : aucun cycle trouvé.")
-            return transport
+            print(
+                f"\nArête améliorante testée : P{i + 1} -> C{j + 1} "
+                f"avec coût marginal {valeur}"
+            )
 
-        afficher_cycle(cycle)
+            cycle = cycle_marche_pied(n, m, base, arete_entrante)
 
-        theta = maximiser_sur_cycle(transport, cycle)
+            if cycle is None:
+                print("Cycle introuvable pour cette arête, on teste la suivante.")
+                continue
 
-        if theta == 0:
-            print("Attention : θ = 0, cas dégénéré particulier.")
-            print("On arrête cette optimisation pour éviter une boucle infinie.")
+            afficher_cycle(cycle)
+
+            theta, arete_sortante = maximiser_sur_cycle(
+                transport,
+                cycle,
+                base,
+                arete_entrante
+            )
+
+            if arete_sortante is None:
+                print("Impossible de faire sortir une arête, on teste la suivante.")
+                continue
+
+            amelioration_faite = True
+            break
+
+        if not amelioration_faite:
+            print("\nAucune amélioration possible malgré des coûts marginaux négatifs.")
+            print("Arrêt de sécurité.")
+            print("Coût atteint =", cout_total(couts, transport))
             return transport
 
         iteration += 1
+
+    print("\nNombre maximal d'itérations atteint.")
+    print("Arrêt de sécurité.")
+    return transport

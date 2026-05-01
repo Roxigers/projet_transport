@@ -6,7 +6,6 @@ def calcul_potentiels(couts, aretes_base):
     v = [None] * m
 
     u[0] = 0
-
     changement = True
 
     while changement:
@@ -65,3 +64,19 @@ def trouver_arete_ameliorante(marginaux, aretes_base):
                     meilleure_arete = (i, j)
 
     return meilleure_arete, meilleure_valeur
+
+
+def toutes_aretes_ameliorantes(marginaux, aretes_base):
+    aretes = []
+
+    n = len(marginaux)
+    m = len(marginaux[0])
+
+    for i in range(n):
+        for j in range(m):
+            if (i, j) not in aretes_base and marginaux[i][j] < 0:
+                aretes.append((i, j, marginaux[i][j]))
+
+    aretes.sort(key=lambda x: x[2])
+
+    return aretes

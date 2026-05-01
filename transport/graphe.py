@@ -29,15 +29,24 @@ def union(parent, a, b):
     return False
 
 
-def rendre_non_degenere(couts, transport):
+def rendre_non_degenere(couts, transport, base=None):
     n = len(couts)
     m = len(couts[0])
 
-    aretes = base_initiale(transport)
+    if base is None:
+        aretes = base_initiale(transport)
+    else:
+        aretes = base.copy()
+
     parent = list(range(n + m))
 
+    base_sans_cycle = []
+
     for i, j in aretes:
-        union(parent, i, n + j)
+        if union(parent, i, n + j):
+            base_sans_cycle.append((i, j))
+
+    aretes = base_sans_cycle
 
     candidates = []
 

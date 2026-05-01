@@ -60,7 +60,7 @@ Table des coûts marginaux :
 P1        0   -50
 P2        0     0
 
-Arête améliorante : P1 -> C2 avec coût marginal -50
+Arête améliorante testée : P1 -> C2 avec coût marginal -50
 
 Cycle trouvé :
 + P1 -> C2
@@ -84,9 +84,8 @@ P1 -> C2 devient 100
 P2 -> C2 devient 0
 P2 -> C1 devient 100
 P1 -> C1 devient 0
-Arête(s) supprimée(s) :
+Arête supprimée de la base :
 P2 -> C2
-P1 -> C1
 
 ------------------------------------------------------------
 ITÉRATION MARCHE-PIED 2
@@ -101,7 +100,7 @@ P2      100     0   | 100
 -------------------------------------
 Cmd    100   100
 Coût actuel = 3000
-Arêtes de base = [(1, 2), (2, 1), (1, 1)]
+Arêtes de base = [(1, 1), (2, 1), (1, 2)]
 Test acyclique BFS : aucun cycle détecté.
 Test connexité BFS : graphe connexe.
 Potentiels fournisseurs u = [0, -20]
