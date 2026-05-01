@@ -71,10 +71,7 @@ Cmd    400   200   100
 Coût initial = 5700
 
 Marche-pied avec potentiels
-
-------------------------------------------------------------
-ITÉRATION MARCHE-PIED 1
-------------------------------------------------------------
+ITÉRATION MARCHE-PIED numéro 1
 
 Proposition de transport :
 
@@ -156,10 +153,7 @@ Pivot dégénéré : θ = 0.
 La proposition ne change pas, mais la base est modifiée.
 Arête supprimée de la base :
 P2 -> C3
-
-------------------------------------------------------------
-ITÉRATION MARCHE-PIED 2
-------------------------------------------------------------
+ITÉRATION MARCHE-PIED numéro 2
 
 Proposition de transport :
 

@@ -41,10 +41,7 @@ Cmd    100  1000
 Coût initial = 12700
 
 Marche-pied avec potentiels
-
-------------------------------------------------------------
-ITÉRATION MARCHE-PIED 1
-------------------------------------------------------------
+ITÉRATION MARCHE-PIED numéro 1
 
 Proposition de transport :
 

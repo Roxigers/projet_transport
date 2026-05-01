@@ -26,10 +26,7 @@ Cmd    100   100
 Coût initial = 8000
 
 Marche-pied avec potentiels
-
-------------------------------------------------------------
-ITÉRATION MARCHE-PIED 1
-------------------------------------------------------------
+ITÉRATION MARCHE-PIED numéro 1
 
 Proposition de transport :
 
@@ -86,10 +83,7 @@ P2 -> C1 devient 100
 P1 -> C1 devient 0
 Arête supprimée de la base :
 P2 -> C2
-
-------------------------------------------------------------
-ITÉRATION MARCHE-PIED 2
-------------------------------------------------------------
+ITÉRATION MARCHE-PIED numéro 2
 
 Proposition de transport :
 
