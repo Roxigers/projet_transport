@@ -36,7 +36,9 @@ Cmd    400   200   100
 Coût initial = 15500
 
 Marche-pied avec potentiels
-ITÉRATION MARCHE-PIED numéro 1
+
+
+ITÉRATION MARCHE-PIED NUMERO 1
 
 Proposition de transport :
 
@@ -108,7 +110,9 @@ P4 -> C2 devient 100
 P6 -> C2 devient 0
 Arête supprimée de la base :
 P4 -> C1
-ITÉRATION MARCHE-PIED numéro 2
+
+
+ITÉRATION MARCHE-PIED NUMERO 2
 
 Proposition de transport :
 
@@ -190,7 +194,9 @@ Pivot dégénéré : θ = 0.
 La proposition ne change pas, mais la base est modifiée.
 Arête supprimée de la base :
 P6 -> C2
-ITÉRATION MARCHE-PIED numéro 3
+
+
+ITÉRATION MARCHE-PIED NUMERO 3
 
 Proposition de transport :
 
@@ -262,7 +268,9 @@ P7 -> C2 devient 100
 P5 -> C2 devient 0
 Arête supprimée de la base :
 P7 -> C3
-ITÉRATION MARCHE-PIED numéro 4
+
+
+ITÉRATION MARCHE-PIED NUMERO 4
 
 Proposition de transport :
 
@@ -344,7 +352,9 @@ Pivot dégénéré : θ = 0.
 La proposition ne change pas, mais la base est modifiée.
 Arête supprimée de la base :
 P5 -> C2
-ITÉRATION MARCHE-PIED numéro 5
+
+
+ITÉRATION MARCHE-PIED NUMERO 5
 
 Proposition de transport :
 
@@ -419,7 +429,9 @@ Pivot dégénéré : θ = 0.
 La proposition ne change pas, mais la base est modifiée.
 Arête supprimée de la base :
 P2 -> C3
-ITÉRATION MARCHE-PIED numéro 6
+
+
+ITÉRATION MARCHE-PIED NUMERO 6
 
 Proposition de transport :
 
@@ -491,7 +503,9 @@ P1 -> C2 devient 100
 P4 -> C2 devient 0
 Arête supprimée de la base :
 P1 -> C1
-ITÉRATION MARCHE-PIED numéro 7
+
+
+ITÉRATION MARCHE-PIED NUMERO 7
 
 Proposition de transport :
 

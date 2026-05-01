@@ -62,7 +62,9 @@ Cmd    120   140   160   180   200   220   240   260   280   300
 Coût initial = 279170
 
 Marche-pied avec potentiels
-ITÉRATION MARCHE-PIED numéro 1
+
+
+ITÉRATION MARCHE-PIED NUMERO 1
 
 Proposition de transport :
 
@@ -173,7 +175,9 @@ P5 -> C2 devient 50
 P6 -> C2 devient 40
 Arête supprimée de la base :
 P5 -> C1
-ITÉRATION MARCHE-PIED numéro 2
+
+
+ITÉRATION MARCHE-PIED NUMERO 2
 
 Proposition de transport :
 

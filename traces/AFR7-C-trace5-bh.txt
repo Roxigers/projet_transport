@@ -53,7 +53,9 @@ Cmd     35    20    20
 Coût initial = 425
 
 Marche-pied avec potentiels
-ITÉRATION MARCHE-PIED numéro 1
+
+
+ITÉRATION MARCHE-PIED NUMERO 1
 
 Proposition de transport :
 

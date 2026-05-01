@@ -172,7 +172,9 @@ def marche_pied_potentiels(n, m, couts, transport, provisions, commandes):
     base = rendre_non_degenere(couts, transport, base)
 
     while iteration <= iteration_max:
-        print(f"ITÉRATION MARCHE-PIED numéro {iteration}")
+        print("\n")
+        print(f"ITÉRATION MARCHE-PIED NUMERO {iteration}")
+
 
         afficher_transport(n, m, transport, provisions, commandes)
         print("Coût actuel =", cout_total(couts, transport))

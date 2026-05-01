@@ -28,7 +28,9 @@ Cmd    500   500   500   500   500   500   500
 Coût initial = 218500
 
 Marche-pied avec potentiels
-ITÉRATION MARCHE-PIED numéro 1
+
+
+ITÉRATION MARCHE-PIED NUMERO 1
 
 Proposition de transport :
 
@@ -88,7 +90,9 @@ P2 -> C1 devient 500
 P1 -> C1 devient 0
 Arête supprimée de la base :
 P2 -> C2
-ITÉRATION MARCHE-PIED numéro 2
+
+
+ITÉRATION MARCHE-PIED NUMERO 2
 
 Proposition de transport :
 
@@ -151,7 +155,9 @@ Pivot dégénéré : θ = 0.
 La proposition ne change pas, mais la base est modifiée.
 Arête supprimée de la base :
 P1 -> C1
-ITÉRATION MARCHE-PIED numéro 3
+
+
+ITÉRATION MARCHE-PIED NUMERO 3
 
 Proposition de transport :
 
