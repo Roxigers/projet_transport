@@ -1,0 +1,284 @@
+============================================================
+GROUPE AFR7 - EQUIPE C
+PROBLEME 9
+METHODE INITIALE : NO
+============================================================
+
+Tableau des coûts :
+
+          C1    C2    C3   | Provision
+-------------------------------------------
+P1       30    20    15   | 100
+P2       10    50     2   | 100
+P3        9    10    30   | 100
+P4        6     2    29   | 100
+P5       50    40     3   | 100
+P6        5    38    27   | 100
+P7       50     4    22   | 100
+-------------------------------------------
+Cmd    400   200   100
+
+Proposition initiale : Nord-Ouest
+
+Proposition de transport :
+
+          C1    C2    C3   | Provision
+-------------------------------------------
+P1      100     0     0   | 100
+P2      100     0     0   | 100
+P3      100     0     0   | 100
+P4      100     0     0   | 100
+P5        0   100     0   | 100
+P6        0   100     0   | 100
+P7        0     0   100   | 100
+-------------------------------------------
+Cmd    400   200   100
+Coût initial = 15500
+
+Marche-pied avec potentiels
+
+------------------------------------------------------------
+ITÉRATION MARCHE-PIED 1
+------------------------------------------------------------
+
+Proposition de transport :
+
+          C1    C2    C3   | Provision
+-------------------------------------------
+P1      100     0     0   | 100
+P2      100     0     0   | 100
+P3      100     0     0   | 100
+P4      100     0     0   | 100
+P5        0   100     0   | 100
+P6        0   100     0   | 100
+P7        0     0   100   | 100
+-------------------------------------------
+Cmd    400   200   100
+Coût actuel = 15500
+Arêtes de base = [(1, 1), (2, 1), (3, 1), (4, 1), (5, 2), (6, 2), (7, 3), (2, 3), (4, 2)]
+Test acyclique BFS : aucun cycle détecté.
+Test connexité BFS : graphe connexe.
+Potentiels fournisseurs u = [0, -20, -21, -24, 14, 12, 0]
+Potentiels clients v = [30, 26, 22]
+
+Table des coûts potentiels :
+
+          C1    C2    C3
+----------------------------
+P1       30    26    22
+P2       10     6     2
+P3        9     5     1
+P4        6     2    -2
+P5       44    40    36
+P6       42    38    34
+P7       30    26    22
+
+Table des coûts marginaux :
+
+          C1    C2    C3
+----------------------------
+P1        0    -6    -7
+P2        0    44     0
+P3        0     5    29
+P4        0     0    31
+P5        6     0   -33
+P6      -37     0    -7
+P7       20   -22     0
+
+Arête améliorante : P6 -> C1 avec coût marginal -37
+
+Cycle trouvé :
++ P6 -> C1
+- P4 -> C1
++ P4 -> C2
+- P6 -> C2
+
+Maximisation sur le cycle :
+Conditions pour chaque case du cycle :
+P6 -> C1 : 0 + θ
+P4 -> C1 : 100 - θ >= 0
+P4 -> C2 : 0 + θ
+P6 -> C2 : 100 - θ >= 0
+Donc θ = min des cases avec signe -
+P4 -> C1 contient 100
+P6 -> C2 contient 100
+θ = 100
+
+Valeurs après modification du cycle :
+P6 -> C1 devient 100
+P4 -> C1 devient 0
+P4 -> C2 devient 100
+P6 -> C2 devient 0
+Arête(s) supprimée(s) :
+P4 -> C1
+P6 -> C2
+
+------------------------------------------------------------
+ITÉRATION MARCHE-PIED 2
+------------------------------------------------------------
+
+Proposition de transport :
+
+          C1    C2    C3   | Provision
+-------------------------------------------
+P1      100     0     0   | 100
+P2      100     0     0   | 100
+P3      100     0     0   | 100
+P4        0   100     0   | 100
+P5        0   100     0   | 100
+P6      100     0     0   | 100
+P7        0     0   100   | 100
+-------------------------------------------
+Cmd    400   200   100
+Coût actuel = 11800
+Arêtes de base = [(1, 1), (2, 1), (3, 1), (4, 2), (5, 2), (6, 1), (7, 3), (2, 3), (5, 3)]
+Test acyclique BFS : aucun cycle détecté.
+Test connexité BFS : graphe connexe.
+Potentiels fournisseurs u = [0, -20, -21, -57, -19, -25, 0]
+Potentiels clients v = [30, 59, 22]
+
+Table des coûts potentiels :
+
+          C1    C2    C3
+----------------------------
+P1       30    59    22
+P2       10    39     2
+P3        9    38     1
+P4      -27     2   -35
+P5       11    40     3
+P6        5    34    -3
+P7       30    59    22
+
+Table des coûts marginaux :
+
+          C1    C2    C3
+----------------------------
+P1        0   -39    -7
+P2        0    11     0
+P3        0   -28    29
+P4       33     0    64
+P5       39     0     0
+P6        0     4    30
+P7       20   -55     0
+
+Arête améliorante : P7 -> C2 avec coût marginal -55
+
+Cycle trouvé :
++ P7 -> C2
+- P5 -> C2
++ P5 -> C3
+- P7 -> C3
+
+Maximisation sur le cycle :
+Conditions pour chaque case du cycle :
+P7 -> C2 : 0 + θ
+P5 -> C2 : 100 - θ >= 0
+P5 -> C3 : 0 + θ
+P7 -> C3 : 100 - θ >= 0
+Donc θ = min des cases avec signe -
+P5 -> C2 contient 100
+P7 -> C3 contient 100
+θ = 100
+
+Valeurs après modification du cycle :
+P7 -> C2 devient 100
+P5 -> C2 devient 0
+P5 -> C3 devient 100
+P7 -> C3 devient 0
+Arête(s) supprimée(s) :
+P5 -> C2
+P7 -> C3
+
+------------------------------------------------------------
+ITÉRATION MARCHE-PIED 3
+------------------------------------------------------------
+
+Proposition de transport :
+
+          C1    C2    C3   | Provision
+-------------------------------------------
+P1      100     0     0   | 100
+P2      100     0     0   | 100
+P3      100     0     0   | 100
+P4        0   100     0   | 100
+P5        0     0   100   | 100
+P6      100     0     0   | 100
+P7        0   100     0   | 100
+-------------------------------------------
+Cmd    400   200   100
+Coût actuel = 6300
+Arêtes de base = [(1, 1), (2, 1), (3, 1), (4, 2), (5, 3), (6, 1), (7, 2), (2, 3), (4, 1)]
+Test acyclique BFS : aucun cycle détecté.
+Test connexité BFS : graphe connexe.
+Potentiels fournisseurs u = [0, -20, -21, -24, -19, -25, -22]
+Potentiels clients v = [30, 26, 22]
+
+Table des coûts potentiels :
+
+          C1    C2    C3
+----------------------------
+P1       30    26    22
+P2       10     6     2
+P3        9     5     1
+P4        6     2    -2
+P5       11     7     3
+P6        5     1    -3
+P7        8     4     0
+
+Table des coûts marginaux :
+
+          C1    C2    C3
+----------------------------
+P1        0    -6    -7
+P2        0    44     0
+P3        0     5    29
+P4        0     0    31
+P5       39    33     0
+P6        0    37    30
+P7       42     0    22
+
+Arête améliorante : P1 -> C3 avec coût marginal -7
+
+Cycle trouvé :
++ P1 -> C3
+- P2 -> C3
++ P2 -> C1
+- P1 -> C1
+
+Maximisation sur le cycle :
+Conditions pour chaque case du cycle :
+P1 -> C3 : 0 + θ
+P2 -> C3 : 0 - θ >= 0
+P2 -> C1 : 100 + θ
+P1 -> C1 : 100 - θ >= 0
+Donc θ = min des cases avec signe -
+P2 -> C3 contient 0
+P1 -> C1 contient 100
+θ = 0
+
+Valeurs après modification du cycle :
+P1 -> C3 devient 0
+P2 -> C3 devient 0
+P2 -> C1 devient 100
+P1 -> C1 devient 100
+Arête(s) supprimée(s) :
+P2 -> C3
+Attention : θ = 0, cas dégénéré particulier.
+On arrête cette optimisation pour éviter une boucle infinie.
+
+Solution finale
+
+Proposition de transport :
+
+          C1    C2    C3   | Provision
+-------------------------------------------
+P1      100     0     0   | 100
+P2      100     0     0   | 100
+P3      100     0     0   | 100
+P4        0   100     0   | 100
+P5        0     0   100   | 100
+P6      100     0     0   | 100
+P7        0   100     0   | 100
+-------------------------------------------
+Cmd    400   200   100
+Coût final = 6300

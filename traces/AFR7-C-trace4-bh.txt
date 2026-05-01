@@ -1,0 +1,91 @@
+============================================================
+GROUPE AFR7 - EQUIPE C
+PROBLEME 4
+METHODE INITIALE : BH
+============================================================
+
+Tableau des coûts :
+
+          C1    C2   | Provision
+-------------------------------------
+P1       30     1   | 600
+P2        1    30   | 500
+-------------------------------------
+Cmd    100  1000
+
+Proposition initiale : Balas-Hammer
+
+Pénalités lignes : [29, 29]
+Pénalités colonnes : [29, 29]
+Pénalité maximale : 29 sur ligne 1
+Arête choisie à remplir : P1 -> C2
+
+Pénalités lignes : [None, 29]
+Pénalités colonnes : [1, 30]
+Pénalité maximale : 30 sur colonne 2
+Arête choisie à remplir : P2 -> C2
+
+Pénalités lignes : [None, 1]
+Pénalités colonnes : [1, None]
+Pénalité maximale : 1 sur ligne 2
+Arête choisie à remplir : P2 -> C1
+
+Proposition de transport :
+
+          C1    C2   | Provision
+-------------------------------------
+P1        0   600   | 600
+P2      100   400   | 500
+-------------------------------------
+Cmd    100  1000
+Coût initial = 12700
+
+Marche-pied avec potentiels
+
+------------------------------------------------------------
+ITÉRATION MARCHE-PIED 1
+------------------------------------------------------------
+
+Proposition de transport :
+
+          C1    C2   | Provision
+-------------------------------------
+P1        0   600   | 600
+P2      100   400   | 500
+-------------------------------------
+Cmd    100  1000
+Coût actuel = 12700
+Arêtes de base = [(1, 2), (2, 1), (2, 2)]
+Test acyclique BFS : aucun cycle détecté.
+Test connexité BFS : graphe connexe.
+Potentiels fournisseurs u = [0, 29]
+Potentiels clients v = [-28, 1]
+
+Table des coûts potentiels :
+
+          C1    C2
+----------------------
+P1      -28     1
+P2        1    30
+
+Table des coûts marginaux :
+
+          C1    C2
+----------------------
+P1       58     0
+P2        0     0
+
+Aucune arête améliorante : solution optimale trouvée.
+Coût optimal = 12700
+
+Solution finale
+
+Proposition de transport :
+
+          C1    C2   | Provision
+-------------------------------------
+P1        0   600   | 600
+P2      100   400   | 500
+-------------------------------------
+Cmd    100  1000
+Coût final = 12700

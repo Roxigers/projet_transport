@@ -1,0 +1,124 @@
+============================================================
+GROUPE AFR7 - EQUIPE C
+PROBLEME 8
+METHODE INITIALE : BH
+============================================================
+
+Tableau des coûts :
+
+          C1    C2   | Provision
+-------------------------------------
+P1       50    20   | 100
+P2       10    50   | 200
+P3       55    40   | 100
+P4       35    45   | 200
+P5       12     8   | 200
+-------------------------------------
+Cmd    300   500
+
+Proposition initiale : Balas-Hammer
+
+Pénalités lignes : [30, 40, 15, 10, 4]
+Pénalités colonnes : [2, 12]
+Pénalité maximale : 40 sur ligne 2
+Arête choisie à remplir : P2 -> C1
+
+Pénalités lignes : [30, None, 15, 10, 4]
+Pénalités colonnes : [23, 12]
+Pénalité maximale : 30 sur ligne 1
+Arête choisie à remplir : P1 -> C2
+
+Pénalités lignes : [None, None, 15, 10, 4]
+Pénalités colonnes : [23, 32]
+Pénalité maximale : 32 sur colonne 2
+Arête choisie à remplir : P5 -> C2
+
+Pénalités lignes : [None, None, 15, 10, None]
+Pénalités colonnes : [20, 5]
+Pénalité maximale : 20 sur colonne 1
+Arête choisie à remplir : P4 -> C1
+
+Pénalités lignes : [None, None, 40, 45, None]
+Pénalités colonnes : [None, 5]
+Pénalité maximale : 45 sur ligne 4
+Arête choisie à remplir : P4 -> C2
+
+Pénalités lignes : [None, None, 40, None, None]
+Pénalités colonnes : [None, 40]
+Pénalité maximale : 40 sur ligne 3
+Arête choisie à remplir : P3 -> C2
+
+Proposition de transport :
+
+          C1    C2   | Provision
+-------------------------------------
+P1        0   100   | 100
+P2      200     0   | 200
+P3        0   100   | 100
+P4      100   100   | 200
+P5        0   200   | 200
+-------------------------------------
+Cmd    300   500
+Coût initial = 17600
+
+Marche-pied avec potentiels
+
+------------------------------------------------------------
+ITÉRATION MARCHE-PIED 1
+------------------------------------------------------------
+
+Proposition de transport :
+
+          C1    C2   | Provision
+-------------------------------------
+P1        0   100   | 100
+P2      200     0   | 200
+P3        0   100   | 100
+P4      100   100   | 200
+P5        0   200   | 200
+-------------------------------------
+Cmd    300   500
+Coût actuel = 17600
+Arêtes de base = [(1, 2), (2, 1), (3, 2), (4, 1), (4, 2), (5, 2)]
+Test acyclique BFS : aucun cycle détecté.
+Test connexité BFS : graphe connexe.
+Potentiels fournisseurs u = [0, 0, 20, 25, -12]
+Potentiels clients v = [10, 20]
+
+Table des coûts potentiels :
+
+          C1    C2
+----------------------
+P1       10    20
+P2       10    20
+P3       30    40
+P4       35    45
+P5       -2     8
+
+Table des coûts marginaux :
+
+          C1    C2
+----------------------
+P1       40     0
+P2        0    30
+P3       25     0
+P4        0     0
+P5       14     0
+
+Aucune arête améliorante : solution optimale trouvée.
+Coût optimal = 17600
+
+Solution finale
+
+Proposition de transport :
+
+          C1    C2   | Provision
+-------------------------------------
+P1        0   100   | 100
+P2      200     0   | 200
+P3        0   100   | 100
+P4      100   100   | 200
+P5        0   200   | 200
+-------------------------------------
+Cmd    300   500
+Coût final = 17600

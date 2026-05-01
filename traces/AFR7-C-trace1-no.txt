@@ -1,0 +1,137 @@
+============================================================
+GROUPE AFR7 - EQUIPE C
+PROBLEME 1
+METHODE INITIALE : NO
+============================================================
+
+Tableau des coûts :
+
+          C1    C2   | Provision
+-------------------------------------
+P1       30    20   | 100
+P2       10    50   | 100
+-------------------------------------
+Cmd    100   100
+
+Proposition initiale : Nord-Ouest
+
+Proposition de transport :
+
+          C1    C2   | Provision
+-------------------------------------
+P1      100     0   | 100
+P2        0   100   | 100
+-------------------------------------
+Cmd    100   100
+Coût initial = 8000
+
+Marche-pied avec potentiels
+
+------------------------------------------------------------
+ITÉRATION MARCHE-PIED 1
+------------------------------------------------------------
+
+Proposition de transport :
+
+          C1    C2   | Provision
+-------------------------------------
+P1      100     0   | 100
+P2        0   100   | 100
+-------------------------------------
+Cmd    100   100
+Coût actuel = 8000
+Arêtes de base = [(1, 1), (2, 2), (2, 1)]
+Test acyclique BFS : aucun cycle détecté.
+Test connexité BFS : graphe connexe.
+Potentiels fournisseurs u = [0, -20]
+Potentiels clients v = [30, 70]
+
+Table des coûts potentiels :
+
+          C1    C2
+----------------------
+P1       30    70
+P2       10    50
+
+Table des coûts marginaux :
+
+          C1    C2
+----------------------
+P1        0   -50
+P2        0     0
+
+Arête améliorante : P1 -> C2 avec coût marginal -50
+
+Cycle trouvé :
++ P1 -> C2
+- P2 -> C2
++ P2 -> C1
+- P1 -> C1
+
+Maximisation sur le cycle :
+Conditions pour chaque case du cycle :
+P1 -> C2 : 0 + θ
+P2 -> C2 : 100 - θ >= 0
+P2 -> C1 : 0 + θ
+P1 -> C1 : 100 - θ >= 0
+Donc θ = min des cases avec signe -
+P2 -> C2 contient 100
+P1 -> C1 contient 100
+θ = 100
+
+Valeurs après modification du cycle :
+P1 -> C2 devient 100
+P2 -> C2 devient 0
+P2 -> C1 devient 100
+P1 -> C1 devient 0
+Arête(s) supprimée(s) :
+P2 -> C2
+P1 -> C1
+
+------------------------------------------------------------
+ITÉRATION MARCHE-PIED 2
+------------------------------------------------------------
+
+Proposition de transport :
+
+          C1    C2   | Provision
+-------------------------------------
+P1        0   100   | 100
+P2      100     0   | 100
+-------------------------------------
+Cmd    100   100
+Coût actuel = 3000
+Arêtes de base = [(1, 2), (2, 1), (1, 1)]
+Test acyclique BFS : aucun cycle détecté.
+Test connexité BFS : graphe connexe.
+Potentiels fournisseurs u = [0, -20]
+Potentiels clients v = [30, 20]
+
+Table des coûts potentiels :
+
+          C1    C2
+----------------------
+P1       30    20
+P2       10     0
+
+Table des coûts marginaux :
+
+          C1    C2
+----------------------
+P1        0     0
+P2        0    50
+
+Aucune arête améliorante : solution optimale trouvée.
+Coût optimal = 3000
+
+Solution finale
+
+Proposition de transport :
+
+          C1    C2   | Provision
+-------------------------------------
+P1        0   100   | 100
+P2      100     0   | 100
+-------------------------------------
+Cmd    100   100
+Coût final = 3000

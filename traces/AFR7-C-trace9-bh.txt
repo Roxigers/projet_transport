@@ -1,0 +1,174 @@
+============================================================
+GROUPE AFR7 - EQUIPE C
+PROBLEME 9
+METHODE INITIALE : BH
+============================================================
+
+Tableau des coûts :
+
+          C1    C2    C3   | Provision
+-------------------------------------------
+P1       30    20    15   | 100
+P2       10    50     2   | 100
+P3        9    10    30   | 100
+P4        6     2    29   | 100
+P5       50    40     3   | 100
+P6        5    38    27   | 100
+P7       50     4    22   | 100
+-------------------------------------------
+Cmd    400   200   100
+
+Proposition initiale : Balas-Hammer
+
+Pénalités lignes : [5, 8, 1, 4, 37, 22, 18]
+Pénalités colonnes : [1, 2, 1]
+Pénalité maximale : 37 sur ligne 5
+Arête choisie à remplir : P5 -> C3
+
+Pénalités lignes : [10, 40, 1, 4, None, 33, 46]
+Pénalités colonnes : [1, 2, None]
+Pénalité maximale : 46 sur ligne 7
+Arête choisie à remplir : P7 -> C2
+
+Pénalités lignes : [10, 40, 1, 4, None, 33, None]
+Pénalités colonnes : [1, 8, None]
+Pénalité maximale : 40 sur ligne 2
+Arête choisie à remplir : P2 -> C1
+
+Pénalités lignes : [10, None, 1, 4, None, 33, None]
+Pénalités colonnes : [1, 8, None]
+Pénalité maximale : 33 sur ligne 6
+Arête choisie à remplir : P6 -> C1
+
+Pénalités lignes : [10, None, 1, 4, None, None, None]
+Pénalités colonnes : [3, 8, None]
+Pénalité maximale : 10 sur ligne 1
+Arête choisie à remplir : P1 -> C2
+
+Pénalités lignes : [None, None, 9, 6, None, None, None]
+Pénalités colonnes : [3, None, None]
+Pénalité maximale : 9 sur ligne 3
+Arête choisie à remplir : P3 -> C1
+
+Pénalités lignes : [None, None, None, 6, None, None, None]
+Pénalités colonnes : [6, None, None]
+Pénalité maximale : 6 sur ligne 4
+Arête choisie à remplir : P4 -> C1
+
+Proposition de transport :
+
+          C1    C2    C3   | Provision
+-------------------------------------------
+P1        0   100     0   | 100
+P2      100     0     0   | 100
+P3      100     0     0   | 100
+P4      100     0     0   | 100
+P5        0     0   100   | 100
+P6      100     0     0   | 100
+P7        0   100     0   | 100
+-------------------------------------------
+Cmd    400   200   100
+Coût initial = 5700
+
+Marche-pied avec potentiels
+
+------------------------------------------------------------
+ITÉRATION MARCHE-PIED 1
+------------------------------------------------------------
+
+Proposition de transport :
+
+          C1    C2    C3   | Provision
+-------------------------------------------
+P1        0   100     0   | 100
+P2      100     0     0   | 100
+P3      100     0     0   | 100
+P4      100     0     0   | 100
+P5        0     0   100   | 100
+P6      100     0     0   | 100
+P7        0   100     0   | 100
+-------------------------------------------
+Cmd    400   200   100
+Coût actuel = 5700
+Arêtes de base = [(1, 2), (2, 1), (3, 1), (4, 1), (5, 3), (6, 1), (7, 2), (2, 3), (4, 2)]
+Test acyclique BFS : aucun cycle détecté.
+Test connexité BFS : graphe connexe.
+Potentiels fournisseurs u = [0, -14, -15, -18, -13, -19, -16]
+Potentiels clients v = [24, 20, 16]
+
+Table des coûts potentiels :
+
+          C1    C2    C3
+----------------------------
+P1       24    20    16
+P2       10     6     2
+P3        9     5     1
+P4        6     2    -2
+P5       11     7     3
+P6        5     1    -3
+P7        8     4     0
+
+Table des coûts marginaux :
+
+          C1    C2    C3
+----------------------------
+P1        6     0    -1
+P2        0    44     0
+P3        0     5    29
+P4        0     0    31
+P5       39    33     0
+P6        0    37    30
+P7       42     0    22
+
+Arête améliorante : P1 -> C3 avec coût marginal -1
+
+Cycle trouvé :
++ P1 -> C3
+- P2 -> C3
++ P2 -> C1
+- P4 -> C1
++ P4 -> C2
+- P1 -> C2
+
+Maximisation sur le cycle :
+Conditions pour chaque case du cycle :
+P1 -> C3 : 0 + θ
+P2 -> C3 : 0 - θ >= 0
+P2 -> C1 : 100 + θ
+P4 -> C1 : 100 - θ >= 0
+P4 -> C2 : 0 + θ
+P1 -> C2 : 100 - θ >= 0
+Donc θ = min des cases avec signe -
+P2 -> C3 contient 0
+P4 -> C1 contient 100
+P1 -> C2 contient 100
+θ = 0
+
+Valeurs après modification du cycle :
+P1 -> C3 devient 0
+P2 -> C3 devient 0
+P2 -> C1 devient 100
+P4 -> C1 devient 100
+P4 -> C2 devient 0
+P1 -> C2 devient 100
+Arête(s) supprimée(s) :
+P2 -> C3
+Attention : θ = 0, cas dégénéré particulier.
+On arrête cette optimisation pour éviter une boucle infinie.
+
+Solution finale
+
+Proposition de transport :
+
+          C1    C2    C3   | Provision
+-------------------------------------------
+P1        0   100     0   | 100
+P2      100     0     0   | 100
+P3      100     0     0   | 100
+P4      100     0     0   | 100
+P5        0     0   100   | 100
+P6      100     0     0   | 100
+P7        0   100     0   | 100
+-------------------------------------------
+Cmd    400   200   100
+Coût final = 5700

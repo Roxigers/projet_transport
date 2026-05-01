@@ -1,0 +1,86 @@
+============================================================
+GROUPE AFR7 - EQUIPE C
+PROBLEME 1
+METHODE INITIALE : BH
+============================================================
+
+Tableau des coûts :
+
+          C1    C2   | Provision
+-------------------------------------
+P1       30    20   | 100
+P2       10    50   | 100
+-------------------------------------
+Cmd    100   100
+
+Proposition initiale : Balas-Hammer
+
+Pénalités lignes : [10, 40]
+Pénalités colonnes : [20, 30]
+Pénalité maximale : 40 sur ligne 2
+Arête choisie à remplir : P2 -> C1
+
+Pénalités lignes : [20, None]
+Pénalités colonnes : [None, 20]
+Pénalité maximale : 20 sur ligne 1
+Arête choisie à remplir : P1 -> C2
+
+Proposition de transport :
+
+          C1    C2   | Provision
+-------------------------------------
+P1        0   100   | 100
+P2      100     0   | 100
+-------------------------------------
+Cmd    100   100
+Coût initial = 3000
+
+Marche-pied avec potentiels
+
+------------------------------------------------------------
+ITÉRATION MARCHE-PIED 1
+------------------------------------------------------------
+
+Proposition de transport :
+
+          C1    C2   | Provision
+-------------------------------------
+P1        0   100   | 100
+P2      100     0   | 100
+-------------------------------------
+Cmd    100   100
+Coût actuel = 3000
+Arêtes de base = [(1, 2), (2, 1), (1, 1)]
+Test acyclique BFS : aucun cycle détecté.
+Test connexité BFS : graphe connexe.
+Potentiels fournisseurs u = [0, -20]
+Potentiels clients v = [30, 20]
+
+Table des coûts potentiels :
+
+          C1    C2
+----------------------
+P1       30    20
+P2       10     0
+
+Table des coûts marginaux :
+
+          C1    C2
+----------------------
+P1        0     0
+P2        0    50
+
+Aucune arête améliorante : solution optimale trouvée.
+Coût optimal = 3000
+
+Solution finale
+
+Proposition de transport :
+
+          C1    C2   | Provision
+-------------------------------------
+P1        0   100   | 100
+P2      100     0   | 100
+-------------------------------------
+Cmd    100   100
+Coût final = 3000

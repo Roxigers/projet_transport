@@ -1,0 +1,244 @@
+============================================================
+GROUPE AFR7 - EQUIPE C
+PROBLEME 12
+METHODE INITIALE : BH
+============================================================
+
+Tableau des coûts :
+
+          C1    C2    C3    C4    C5    C6    C7    C8    C9   C10   C11   C12   C13   C14   C15   C16   | Provision
+-------------------------------------------------------------------------------------------------------------------------
+P1      186   185   184   183   182   181   180   179   178   177   176   175   174   173   172   171   | 160
+P2      166   165   164   163   162   161   160   159   158   157   156   155   154   153   152   151   | 160
+P3      156   155   154   153   152   151   150   149   148   147   146   145   144   143   142   141   | 160
+P4      136   135   134   133   132   131   130   129   128   127   126   125   124   123   122   121   | 160
+P5      116   115   114   113   112   111   110   109   108   107   106   105   104   103   102   101   | 160
+P6       96    95    94    93    92    91    90    89    88    87    86    85    84    83    82    81   | 160
+P7       76    75    74    73    72    71    70    69    68    67    66    65    64    63    62    61   | 160
+P8       56    55    54    53    52    51    50    49    48    47    46    45    44    43    42    41   | 160
+P9       36    35    34    33    32    31    30    29    28    27    26    25    24    23    22    21   | 160
+P10      16    15    14    13    12    11    10     9     8     7     6     5     4     3     2     1   | 160
+-------------------------------------------------------------------------------------------------------------------------
+Cmd    100   100   100   100   100   100   100   100   100   100   100   100   100   100   100   100
+
+Proposition initiale : Balas-Hammer
+
+Pénalités lignes : [1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+Pénalités colonnes : [20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20]
+Pénalité maximale : 20 sur colonne 1
+Arête choisie à remplir : P10 -> C1
+
+Pénalités lignes : [1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+Pénalités colonnes : [None, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20]
+Pénalité maximale : 20 sur colonne 2
+Arête choisie à remplir : P10 -> C2
+
+Pénalités lignes : [1, 1, 1, 1, 1, 1, 1, 1, 1, None]
+Pénalités colonnes : [None, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20]
+Pénalité maximale : 20 sur colonne 2
+Arête choisie à remplir : P9 -> C2
+
+Pénalités lignes : [1, 1, 1, 1, 1, 1, 1, 1, 1, None]
+Pénalités colonnes : [None, None, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20]
+Pénalité maximale : 20 sur colonne 3
+Arête choisie à remplir : P9 -> C3
+
+Pénalités lignes : [1, 1, 1, 1, 1, 1, 1, 1, 1, None]
+Pénalités colonnes : [None, None, None, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20]
+Pénalité maximale : 20 sur colonne 4
+Arête choisie à remplir : P9 -> C4
+
+Pénalités lignes : [1, 1, 1, 1, 1, 1, 1, 1, None, None]
+Pénalités colonnes : [None, None, None, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20]
+Pénalité maximale : 20 sur colonne 4
+Arête choisie à remplir : P8 -> C4
+
+Pénalités lignes : [1, 1, 1, 1, 1, 1, 1, 1, None, None]
+Pénalités colonnes : [None, None, None, None, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20]
+Pénalité maximale : 20 sur colonne 5
+Arête choisie à remplir : P8 -> C5
+
+Pénalités lignes : [1, 1, 1, 1, 1, 1, 1, None, None, None]
+Pénalités colonnes : [None, None, None, None, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20]
+Pénalité maximale : 20 sur colonne 5
+Arête choisie à remplir : P7 -> C5
+
+Pénalités lignes : [1, 1, 1, 1, 1, 1, 1, None, None, None]
+Pénalités colonnes : [None, None, None, None, None, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20]
+Pénalité maximale : 20 sur colonne 6
+Arête choisie à remplir : P7 -> C6
+
+Pénalités lignes : [1, 1, 1, 1, 1, 1, 1, None, None, None]
+Pénalités colonnes : [None, None, None, None, None, None, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20]
+Pénalité maximale : 20 sur colonne 7
+Arête choisie à remplir : P7 -> C7
+
+Pénalités lignes : [1, 1, 1, 1, 1, 1, None, None, None, None]
+Pénalités colonnes : [None, None, None, None, None, None, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20]
+Pénalité maximale : 20 sur colonne 7
+Arête choisie à remplir : P6 -> C7
+
+Pénalités lignes : [1, 1, 1, 1, 1, 1, None, None, None, None]
+Pénalités colonnes : [None, None, None, None, None, None, None, 20, 20, 20, 20, 20, 20, 20, 20, 20]
+Pénalité maximale : 20 sur colonne 8
+Arête choisie à remplir : P6 -> C8
+
+Pénalités lignes : [1, 1, 1, 1, 1, None, None, None, None, None]
+Pénalités colonnes : [None, None, None, None, None, None, None, None, 20, 20, 20, 20, 20, 20, 20, 20]
+Pénalité maximale : 20 sur colonne 9
+Arête choisie à remplir : P5 -> C9
+
+Pénalités lignes : [1, 1, 1, 1, 1, None, None, None, None, None]
+Pénalités colonnes : [None, None, None, None, None, None, None, None, None, 20, 20, 20, 20, 20, 20, 20]
+Pénalité maximale : 20 sur colonne 10
+Arête choisie à remplir : P5 -> C10
+
+Pénalités lignes : [1, 1, 1, 1, None, None, None, None, None, None]
+Pénalités colonnes : [None, None, None, None, None, None, None, None, None, 20, 20, 20, 20, 20, 20, 20]
+Pénalité maximale : 20 sur colonne 10
+Arête choisie à remplir : P4 -> C10
+
+Pénalités lignes : [1, 1, 1, 1, None, None, None, None, None, None]
+Pénalités colonnes : [None, None, None, None, None, None, None, None, None, None, 20, 20, 20, 20, 20, 20]
+Pénalité maximale : 20 sur colonne 11
+Arête choisie à remplir : P4 -> C11
+
+Pénalités lignes : [1, 1, 1, 1, None, None, None, None, None, None]
+Pénalités colonnes : [None, None, None, None, None, None, None, None, None, None, None, 20, 20, 20, 20, 20]
+Pénalité maximale : 20 sur colonne 12
+Arête choisie à remplir : P4 -> C12
+
+Pénalités lignes : [1, 1, 1, None, None, None, None, None, None, None]
+Pénalités colonnes : [None, None, None, None, None, None, None, None, None, None, None, 10, 10, 10, 10, 10]
+Pénalité maximale : 10 sur colonne 12
+Arête choisie à remplir : P3 -> C12
+
+Pénalités lignes : [1, 1, 1, None, None, None, None, None, None, None]
+Pénalités colonnes : [None, None, None, None, None, None, None, None, None, None, None, None, 10, 10, 10, 10]
+Pénalité maximale : 10 sur colonne 13
+Arête choisie à remplir : P3 -> C13
+
+Pénalités lignes : [1, 1, None, None, None, None, None, None, None, None]
+Pénalités colonnes : [None, None, None, None, None, None, None, None, None, None, None, None, 20, 20, 20, 20]
+Pénalité maximale : 20 sur colonne 13
+Arête choisie à remplir : P2 -> C13
+
+Pénalités lignes : [1, 1, None, None, None, None, None, None, None, None]
+Pénalités colonnes : [None, None, None, None, None, None, None, None, None, None, None, None, None, 20, 20, 20]
+Pénalité maximale : 20 sur colonne 14
+Arête choisie à remplir : P2 -> C14
+
+Pénalités lignes : [1, 1, None, None, None, None, None, None, None, None]
+Pénalités colonnes : [None, None, None, None, None, None, None, None, None, None, None, None, None, None, 20, 20]
+Pénalité maximale : 20 sur colonne 15
+Arête choisie à remplir : P2 -> C15
+
+Pénalités lignes : [1, None, None, None, None, None, None, None, None, None]
+Pénalités colonnes : [None, None, None, None, None, None, None, None, None, None, None, None, None, None, 172, 171]
+Pénalité maximale : 172 sur colonne 15
+Arête choisie à remplir : P1 -> C15
+
+Pénalités lignes : [171, None, None, None, None, None, None, None, None, None]
+Pénalités colonnes : [None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, 171]
+Pénalité maximale : 171 sur ligne 1
+Arête choisie à remplir : P1 -> C16
+
+Proposition de transport :
+
+          C1    C2    C3    C4    C5    C6    C7    C8    C9   C10   C11   C12   C13   C14   C15   C16   | Provision
+-------------------------------------------------------------------------------------------------------------------------
+P1        0     0     0     0     0     0     0     0     0     0     0     0     0     0    60   100   | 160
+P2        0     0     0     0     0     0     0     0     0     0     0     0    20   100    40     0   | 160
+P3        0     0     0     0     0     0     0     0     0     0     0    80    80     0     0     0   | 160
+P4        0     0     0     0     0     0     0     0     0    40   100    20     0     0     0     0   | 160
+P5        0     0     0     0     0     0     0     0   100    60     0     0     0     0     0     0   | 160
+P6        0     0     0     0     0     0    60   100     0     0     0     0     0     0     0     0   | 160
+P7        0     0     0     0    20   100    40     0     0     0     0     0     0     0     0     0   | 160
+P8        0     0     0    80    80     0     0     0     0     0     0     0     0     0     0     0   | 160
+P9        0    40   100    20     0     0     0     0     0     0     0     0     0     0     0     0   | 160
+P10     100    60     0     0     0     0     0     0     0     0     0     0     0     0     0     0   | 160
+-------------------------------------------------------------------------------------------------------------------------
+Cmd    100   100   100   100   100   100   100   100   100   100   100   100   100   100   100   100
+Coût initial = 154400
+
+Marche-pied avec potentiels
+
+------------------------------------------------------------
+ITÉRATION MARCHE-PIED 1
+------------------------------------------------------------
+
+Proposition de transport :
+
+          C1    C2    C3    C4    C5    C6    C7    C8    C9   C10   C11   C12   C13   C14   C15   C16   | Provision
+-------------------------------------------------------------------------------------------------------------------------
+P1        0     0     0     0     0     0     0     0     0     0     0     0     0     0    60   100   | 160
+P2        0     0     0     0     0     0     0     0     0     0     0     0    20   100    40     0   | 160
+P3        0     0     0     0     0     0     0     0     0     0     0    80    80     0     0     0   | 160
+P4        0     0     0     0     0     0     0     0     0    40   100    20     0     0     0     0   | 160
+P5        0     0     0     0     0     0     0     0   100    60     0     0     0     0     0     0   | 160
+P6        0     0     0     0     0     0    60   100     0     0     0     0     0     0     0     0   | 160
+P7        0     0     0     0    20   100    40     0     0     0     0     0     0     0     0     0   | 160
+P8        0     0     0    80    80     0     0     0     0     0     0     0     0     0     0     0   | 160
+P9        0    40   100    20     0     0     0     0     0     0     0     0     0     0     0     0   | 160
+P10     100    60     0     0     0     0     0     0     0     0     0     0     0     0     0     0   | 160
+-------------------------------------------------------------------------------------------------------------------------
+Cmd    100   100   100   100   100   100   100   100   100   100   100   100   100   100   100   100
+Coût actuel = 154400
+Arêtes de base = [(1, 15), (1, 16), (2, 13), (2, 14), (2, 15), (3, 12), (3, 13), (4, 10), (4, 11), (4, 12), (5, 9), (5, 10), (6, 7), (6, 8), (7, 5), (7, 6), (7, 7), (8, 4), (8, 5), (9, 2), (9, 3), (9, 4), (10, 1), (10, 2), (10, 16)]
+Test acyclique BFS : aucun cycle détecté.
+Test connexité BFS : graphe connexe.
+Potentiels fournisseurs u = [0, -20, -30, -50, -70, -90, -110, -130, -150, -170]
+Potentiels clients v = [186, 185, 184, 183, 182, 181, 180, 179, 178, 177, 176, 175, 174, 173, 172, 171]
+
+Table des coûts potentiels :
+
+          C1    C2    C3    C4    C5    C6    C7    C8    C9   C10   C11   C12   C13   C14   C15   C16
+----------------------------------------------------------------------------------------------------------
+P1      186   185   184   183   182   181   180   179   178   177   176   175   174   173   172   171
+P2      166   165   164   163   162   161   160   159   158   157   156   155   154   153   152   151
+P3      156   155   154   153   152   151   150   149   148   147   146   145   144   143   142   141
+P4      136   135   134   133   132   131   130   129   128   127   126   125   124   123   122   121
+P5      116   115   114   113   112   111   110   109   108   107   106   105   104   103   102   101
+P6       96    95    94    93    92    91    90    89    88    87    86    85    84    83    82    81
+P7       76    75    74    73    72    71    70    69    68    67    66    65    64    63    62    61
+P8       56    55    54    53    52    51    50    49    48    47    46    45    44    43    42    41
+P9       36    35    34    33    32    31    30    29    28    27    26    25    24    23    22    21
+P10      16    15    14    13    12    11    10     9     8     7     6     5     4     3     2     1
+
+Table des coûts marginaux :
+
+          C1    C2    C3    C4    C5    C6    C7    C8    C9   C10   C11   C12   C13   C14   C15   C16
+----------------------------------------------------------------------------------------------------------
+P1        0     0     0     0     0     0     0     0     0     0     0     0     0     0     0     0
+P2        0     0     0     0     0     0     0     0     0     0     0     0     0     0     0     0
+P3        0     0     0     0     0     0     0     0     0     0     0     0     0     0     0     0
+P4        0     0     0     0     0     0     0     0     0     0     0     0     0     0     0     0
+P5        0     0     0     0     0     0     0     0     0     0     0     0     0     0     0     0
+P6        0     0     0     0     0     0     0     0     0     0     0     0     0     0     0     0
+P7        0     0     0     0     0     0     0     0     0     0     0     0     0     0     0     0
+P8        0     0     0     0     0     0     0     0     0     0     0     0     0     0     0     0
+P9        0     0     0     0     0     0     0     0     0     0     0     0     0     0     0     0
+P10       0     0     0     0     0     0     0     0     0     0     0     0     0     0     0     0
+
+Aucune arête améliorante : solution optimale trouvée.
+Coût optimal = 154400
+
+Solution finale
+
+Proposition de transport :
+
+          C1    C2    C3    C4    C5    C6    C7    C8    C9   C10   C11   C12   C13   C14   C15   C16   | Provision
+-------------------------------------------------------------------------------------------------------------------------
+P1        0     0     0     0     0     0     0     0     0     0     0     0     0     0    60   100   | 160
+P2        0     0     0     0     0     0     0     0     0     0     0     0    20   100    40     0   | 160
+P3        0     0     0     0     0     0     0     0     0     0     0    80    80     0     0     0   | 160
+P4        0     0     0     0     0     0     0     0     0    40   100    20     0     0     0     0   | 160
+P5        0     0     0     0     0     0     0     0   100    60     0     0     0     0     0     0   | 160
+P6        0     0     0     0     0     0    60   100     0     0     0     0     0     0     0     0   | 160
+P7        0     0     0     0    20   100    40     0     0     0     0     0     0     0     0     0   | 160
+P8        0     0     0    80    80     0     0     0     0     0     0     0     0     0     0     0   | 160
+P9        0    40   100    20     0     0     0     0     0     0     0     0     0     0     0     0   | 160
+P10     100    60     0     0     0     0     0     0     0     0     0     0     0     0     0     0   | 160
+-------------------------------------------------------------------------------------------------------------------------
+Cmd    100   100   100   100   100   100   100   100   100   100   100   100   100   100   100   100
+Coût final = 154400

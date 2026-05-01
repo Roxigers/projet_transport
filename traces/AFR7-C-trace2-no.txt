@@ -1,0 +1,76 @@
+============================================================
+GROUPE AFR7 - EQUIPE C
+PROBLEME 2
+METHODE INITIALE : NO
+============================================================
+
+Tableau des coûts :
+
+          C1    C2   | Provision
+-------------------------------------
+P1       10    20   | 100
+P2       30    10   | 100
+-------------------------------------
+Cmd    100   100
+
+Proposition initiale : Nord-Ouest
+
+Proposition de transport :
+
+          C1    C2   | Provision
+-------------------------------------
+P1      100     0   | 100
+P2        0   100   | 100
+-------------------------------------
+Cmd    100   100
+Coût initial = 2000
+
+Marche-pied avec potentiels
+
+------------------------------------------------------------
+ITÉRATION MARCHE-PIED 1
+------------------------------------------------------------
+
+Proposition de transport :
+
+          C1    C2   | Provision
+-------------------------------------
+P1      100     0   | 100
+P2        0   100   | 100
+-------------------------------------
+Cmd    100   100
+Coût actuel = 2000
+Arêtes de base = [(1, 1), (2, 2), (1, 2)]
+Test acyclique BFS : aucun cycle détecté.
+Test connexité BFS : graphe connexe.
+Potentiels fournisseurs u = [0, -10]
+Potentiels clients v = [10, 20]
+
+Table des coûts potentiels :
+
+          C1    C2
+----------------------
+P1       10    20
+P2        0    10
+
+Table des coûts marginaux :
+
+          C1    C2
+----------------------
+P1        0     0
+P2       30     0
+
+Aucune arête améliorante : solution optimale trouvée.
+Coût optimal = 2000
+
+Solution finale
+
+Proposition de transport :
+
+          C1    C2   | Provision
+-------------------------------------
+P1      100     0   | 100
+P2        0   100   | 100
+-------------------------------------
+Cmd    100   100
+Coût final = 2000
